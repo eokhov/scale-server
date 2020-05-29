@@ -1,0 +1,43 @@
+
+<div class="head-Content">
+  <h1>Задания {{site}}-го участка</h1>
+</div>
+
+<div class="content">
+{{#if melts.length}}
+{{#each melts}}
+
+  <div class="card-wrap">
+    <a href="/melt/{{id}}">
+      <div class="card">
+        <h2>{{name}}</h2>
+        <span class="card-text-wrap">Номер
+          <span class="card-text">{{nummelt}}</span>
+        </span>
+
+        <span class="card-text-wrap">Участок
+          <span class="card-text">{{site}}</span>
+        </span>
+
+        <span class="card-text-wrap">Вес
+          <span class="card-text">{{totalweigth}}</span>
+        </span>
+      </div>
+    </a>
+
+    <div class="button-block">
+      <span>{{workdate}}</span>
+      <a href="/edit/{{id}}?allow=true" class="btn btn-secondary">Изменить
+      <i class="icon-MS icon-ChevronRight"></i></a>
+    </div>
+  </div>
+
+{{/each}}
+{{else}}
+  <h5>Нет шихтовок</h5>
+{{/if}}
+  <div class="flex-clearfix"></div>
+  <div class="flex-clearfix"></div>
+  <div class="flex-clearfix"></div>
+  <div class="flex-clearfix"></div>
+</div>

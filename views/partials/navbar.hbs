@@ -1,0 +1,29 @@
+<div class="nav-wrapper">
+  <nav class="nav-panel">
+    <ul class="pivot">
+      {{#if isHome}}
+        <li class="active"><a href="/">Сегодня</a></li>
+      {{else}}
+        <li><a href="/">Сегодня</a></li>
+      {{/if}}
+
+      {{#if isSite1}}
+        <li class="active"><a href="/site1">1 участок</a></li>
+      {{else}}
+        <li><a href="/site1">1 участок</a></li>
+      {{/if}}
+
+      {{#if isSite2}}
+        <li class="active"><a href="/site2">2 участок</a></li>
+      {{else}}
+        <li><a href="/site2">2 участок</a></li>
+      {{/if}}
+
+      {{#if isSite3}}
+        <li class="active"><a href="/site3">3 участок</a></li>
+      {{else}}
+        <li><a href="/site3">3 участок</a></li>
+      {{/if}}
+    </ul>
+  </nav>
+</div>

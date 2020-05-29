@@ -1,0 +1,28 @@
+<h1>Редактировать задание № {{melt.nummelt}}</h1>
+<div class="main-block">
+
+  <div class="form-block">
+    <h2>Общая информация</h2>
+    {{>edit-form}}
+  </div>
+
+  <div class="sidebar-block">
+    <h2>Сводная информация</h2>
+
+    <table class="submit-table">
+      <tbody class="submit-block">
+
+      </tbody>
+    </table>
+
+    <div class="total-weight">
+      <p>Общий вес:</p>
+      <input readonly type="number" name="totalweigth" form="scaleForm">
+    </div>
+
+    <button id="myBtn" type="submit" class="btn btn-primary btn-next" form="scaleForm">Изменить
+      <i class="icon-MS icon-ChevronRight"></i>
+    </button>
+  </div>
+
+</div>

@@ -1,0 +1,54 @@
+<div class="print-item">
+  <div class="sample">
+    <div class="code">
+      <svg id="barcode"></svg>
+    </div>
+
+    <div class="code-info">
+      <h3>{{name}}</h3>
+      <h3>№ {{nummelt}}</h3>
+    </div>
+  </div>
+
+  <div class="table-code">
+    <table class="print-table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2">Наименование материала</th>
+          <th scope="col">Вес</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each materials}}
+          {{#each this}}
+            <tr>
+              <td>{{@key}}</td>
+              <td>{{this}}</td>
+            </tr>
+          {{/each}}
+        {{/each}}
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="2" class="total">Итого:</td>
+          <td>{{totalweigth}}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="title">
+    <div class="melt-info">
+      <span>Шихта для</span>
+      <h2>{{name}}</h2>
+    </div>
+
+    <div class="melt-info">
+      <span>Номер плавки</span>
+      <h2>{{nummelt}}</h2>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,14 @@
+{{> head }}
+<body>
+  {{> navbar }}
+  <div class="container">
+    {{{ body }}}
+  </div>
+
+  {{#if isCreate}}
+    {{> footer-create}}
+  {{else}}
+    {{> footer-edit}}
+  {{/if}}
+</body>
+</html>

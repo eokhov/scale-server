@@ -1,0 +1,106 @@
+
+<div class="head-Content">
+  <h1>Задания на сегодня</h1>
+
+  <a href="/create" class="btn btn-primary">
+    <i class="icon-MS icon-Add"></i>Создать</a>
+</div>
+
+<div class="content">
+
+  <section class="site-block">
+    <div class="site-title">
+      <h2 class="title-text">1 Участок</h2>
+    </div>
+
+    {{#if site1Melts.length}}
+    <div class="site-cards-wrap">
+
+      <div class="print-wrap">
+        <div class="card-wrap card-print">
+          <a href="/print/1">
+            <div class="card">
+              <i class="icon-MS icon-Print-block"></i>
+              <h2 class="print-text">Печать</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="card-block">
+        {{#each site1Melts}}
+        {{> card id=id name=name nummelt=nummelt site=site totalweigth=totalweigth workdate=workdate}}
+        {{/each}}
+      </div>
+      
+    </div>
+    {{else}}
+      <h5>Шихтовок на сегодня нет</h5>
+    {{/if}}
+    
+  </section>
+
+  <section class="site-block">
+    <div class="site-title">
+      <h2 class="title-text">2 Участок</h2>
+    </div>
+
+    {{#if site2Melts.length}}
+    <div class="site-cards-wrap">
+
+      <div class="print-wrap">
+        <div class="card-wrap card-print">
+          <a href="/print/2">
+            <div class="card">
+              <i class="icon-MS icon-Print-block"></i>
+              <h2 class="print-text">Печать</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="card-block">
+        {{#each site2Melts}}
+        {{> card id=id name=name nummelt=nummelt site=site totalweigth=totalweigth workdate=workdate}}
+        {{/each}}
+      </div>
+      
+    </div>
+    {{else}}
+      <h5>Шихтовок на сегодня нет</h5>
+    {{/if}}
+    
+  </section>
+
+  <section class="site-block">
+    <div class="site-title">
+      <h2 class="title-text">3 Участок</h2>
+    </div>
+
+    {{#if site3Melts.length}}
+    <div class="site-cards-wrap">
+
+      <div class="print-wrap">
+        <div class="card-wrap card-print">
+          <a href="/print/3">
+            <div class="card">
+              <i class="icon-MS icon-Print-block"></i>
+              <h2 class="print-text">Печать</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="card-block">
+        {{#each site3Melts}}
+        {{> card id=id name=name nummelt=nummelt site=site totalweigth=totalweigth workdate=workdate}}
+        {{/each}}
+      </div>
+      
+    </div>
+    {{else}}
+      <h5>Шихтовок на сегодня нет</h5>
+    {{/if}}
+    
+  </section>
+</div>

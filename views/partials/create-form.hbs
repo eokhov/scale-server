@@ -1,0 +1,36 @@
+<form id="scaleForm" action="/create" method="post">
+
+  <div class="general-info">
+    <div class="block-side">
+      <label for="name">Наименование</label>
+      <input type="text" readonly name="name" id="name" class="scale-input simple-input" required>
+
+      <div class="option-block">
+        <div class="option" data-name="femo"><span>FeMo</span></div>
+        <div class="option" data-name="mocr"><span>MoCr</span></div>
+        <div class="option" data-name="few"><span>FeW</span></div>
+        <div class="option" data-name="wcr"><span>WCr</span></div>
+        <div class="option" data-name="fenb"><span>FeNb</span></div>
+      </div>
+
+      <label for="nummelt">Номер шихты</label>
+      <input type="number" name="nummelt" id="nummelt" class="scale-input simple-input" required>
+    </div>
+
+    <div class="block-side">
+      <label for="site">Номер участка</label>
+      <input type="number" name="site" id="site" class="scale-input simple-input">
+
+      <label for="workdate">Дата</label>
+      <input type="date" name="workdate" id="workdate" class="scale-input simple-input">
+    </div>
+  </div>
+
+  <fieldset form="scaleForm" name="fieldset" class="main-material">
+    <legend><h2>Основной материал</h2></legend>
+
+    <div class="input-container"></div>
+    
+  </fieldset>
+
+</form>

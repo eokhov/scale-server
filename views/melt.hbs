@@ -1,0 +1,134 @@
+
+<div class="melt-container">
+  <h6>ИНФОРМАЦИЯ О ШИХТЕ</h6>
+
+  <div class="mc-panel">
+    <div>
+      <span class="mc-info">Наименование</span>
+      <h1>{{melt.name}}</h1>
+    </div>
+
+    <ul class="mc-actions">
+      <li>
+        <a href="/edit/{{melt.id}}?allow=true"><i class="icon-MS icon-Edit"></i>Изменить</a>
+      </li>
+      <li>
+        <a href="/melt/print/{{melt.id}}" target="_blank"><i class="icon-MS icon-Print"></i>Печать</a>
+      </li>
+    </ul>
+    <span class="hiddenElem">{{melt.id}}</span>
+  </div>
+
+
+  <ul class="breadcrumbs">
+    <li class="bc-item">
+      <span class="bc-title mc-info">Номер: </span>
+      <span class="bc-data">{{melt.nummelt}}</span>
+      <span class="bc-separate">/</span>
+    </li>
+    <li class="bc-item">
+      <span class="bc-title mc-info">Участок: </span>
+      <span class="bc-data">{{melt.site}}</span>
+      <span class="bc-separate">/</span>
+    </li>
+    <li class="bc-item">
+      <span class="bc-title mc-info">Дата: </span>
+      <span class="bc-data">{{melt.workdate}}</span>
+    </li>
+  </ul>
+
+  <table class="melt-table">
+    <thead>
+      <tr>
+        <th>Наименование материала</th>
+        <th>Вес</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each melt.materials}}
+        {{#each this}}
+          <tr>
+            <td>{{@key}}</td>
+            <td class="item-scale">{{this}}</td>
+          </tr>
+        {{/each}}
+      {{/each}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Общий вес:</th>
+        <th>{{melt.totalweigth}}</th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <button class="btn btn-primary getResult">Получить результат</button>
+
+  <div class="result_block"></div>
+</div>
+
+<script>
+  const resultBlock = document.querySelector('.result_block');
+  const resultBtn = document.querySelector('.getResult');
+  const meltID = document.querySelector('.hiddenElem');
+  const dataObj = {id: `${meltID.textContent}`};
+
+  const showResult = (result) => {
+    if(typeof result === 'object') {
+
+      let resultHeader = document.createElement("h3");
+      resultHeader.textContent = "Состояние сборки шихты";
+
+      let resultContent = document.createElement("div");
+      resultContent.className = "result_content";
+
+      resultBlock.insertAdjacentElement("afterbegin", resultHeader);
+      resultBlock.insertAdjacentElement("beforeend", resultContent);
+
+      resultContent.insertAdjacentHTML('afterbegin', `
+        <table class="table_result">
+        <thead>
+        <tr>
+          <td><b>Материал</b></td>
+          <td>Вес</td>
+        </tr>
+        </thead>
+        <tbody class="table_result__tbody">
+        </tbody>
+      </table>
+      `)
+
+      const tableTbody = document.querySelector('.table_result__tbody')
+      result.materials.forEach(item => {
+        tableTbody.insertAdjacentHTML('beforeend', `<tr><td>${item.material}</td><td>${item.weight}</td></tr>`)
+      })
+    } else {
+      resultBlock.insertAdjacentHTML('afterbegin', `<h3>${result}</h3>`)
+    }
+  };
+
+  resultBtn.addEventListener('click', () => {
+    if (resultBtn.classList.length === 3) {
+      fetch('/melt', {
+        headers: {"Content-Type": "application/json; charset=utf-8"},
+        method: 'POST',
+        body: JSON.stringify(dataObj)
+      })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data) {
+          showResult(JSON.parse(data));
+          resultBtn.classList.toggle('press');
+        } else {
+          showResult('Сборка шихты ещё не начата');
+          resultBtn.classList.toggle('press');
+        }
+      })
+    } else {
+      while (resultBlock.firstChild) {
+        resultBlock.removeChild(resultBlock.firstChild)
+      }
+      resultBtn.classList.toggle('press');
+    }
+  });
+</script>

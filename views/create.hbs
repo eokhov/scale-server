@@ -1,0 +1,67 @@
+{{!-- Start The Modal --}}
+<div id="scaleModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-head">
+      <h3>Подтвердите действие</h3>
+      <button type="button" class="modal-close">
+        <i class="icon-MS icon-Cancel"></i>
+      </button>
+    </div>
+    <p>Укажите сколько заданий нужно создать с введенными данными</p>
+    <input id="quantity" class="scale-input modal-input" type="number" form="scaleForm" name="quantity" step="1" min="1" max="5" value="3" required>
+    <span class="validity"></span>
+    <button type="submit" class="btn btn-primary btn-next" form="scaleForm">Готово</button>
+  </div>
+</div>
+{{!-- End The Modal --}}
+
+<h1>Создать задание</h1>
+<div class="main-block">
+
+  <div class="form-block">
+    <h2>Общая информация</h2>
+    {{>create-form}}
+  </div>
+
+  <div class="sidebar-block">
+    <h2>Сводная информация</h2>
+
+    <table class="submit-table">
+      <tbody class="submit-block">
+        <tr>
+          <td>Материал не выбран</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="total-weight">
+      <p>Общий вес:</p>
+      <input readonly type="number" value="0" name="totalweigth" form="scaleForm">
+    </div>
+
+
+    <button id="myBtn" type="button" class="btn btn-primary btn-next" form="scaleForm">Сохранить
+      <i class="icon-MS icon-ChevronRight"></i>
+    </button>
+  </div>
+
+</div>
+
+<script>
+  const modal = document.getElementById('scaleModal');
+  const myBtn = document.getElementById('myBtn');
+  const span = document.getElementsByClassName('modal-close')[0];
+  const fieldWorkdate = document.getElementById('workdate');
+  
+  // Fill date field
+  const curDate = new Date();
+  fieldWorkdate.value = `${curDate.getFullYear()}-${('0' + (curDate.getMonth() + 1)).slice(-2)}-${('0' + curDate.getDate()).slice(-2)}`;
+
+  myBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+  });
+
+  span.addEventListener('click', () => {
+    modal.style.display = 'none';
+  })
+</script>

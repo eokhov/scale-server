@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+h2 {
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+}
+
+/* Style for start page client */
+#tenso-form {
+  position: absolute;
+  left: -1000px;
+  bottom: -1000px;
+}
+/* End */
+
+.print-container {
+  margin: 0 auto;
+  width: 210mm;
+  height: 279mm;
+}
+
+.print-item {
+  margin-block-start: 10px;
+  border-bottom: 2px dashed grey;
+  position: relative;
+  height: 375px;
+}
+
+.print-item:last-child {
+  border-bottom: none;
+}
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  transform: rotate(90deg);
+  position: absolute;
+  right: -65px;
+  top: 70px;
+}
+
+.melt-info {
+  margin-right: 10px;
+}
+
+.table-code {
+  transform: rotate(90deg);
+  position: absolute;
+  right: 110px;
+  top: 0;
+  bottom: 0;
+  width: 370px;
+
+}
+
+.print-table {
+  border-collapse: collapse;
+  width: 95%;
+  counter-reset: score;
+}
+
+.print-table tbody tr {
+  counter-increment: score;
+}
+
+.print-table tbody tr::before {
+  content: counter(score);
+  display: table-cell;
+  vertical-align: middle;
+}
+
+th,
+td,
+.print-table tbody tr::before {
+  border: 1px solid grey;
+  padding: 6px;
+}
+
+tfoot .total {
+  text-align: right;
+}
+
+.sample {
+  transform: rotate(90deg);
+  position: absolute;
+  left: -130px;
+  top: 110px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.code {
+  margin-inline-end: 20px;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15px;
+  }
+}

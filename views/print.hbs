@@ -1,0 +1,33 @@
+<div class="print-container">
+
+  {{#if melts.length}}
+    {{#each melts}}
+      {{> print-table}}
+    {{/each}}
+  {{else}}
+    {{#with melt}}
+      {{> print-table}}
+    {{/with}}
+  {{/if}}
+
+</div>
+
+<script src="/js/barcode.lib.js"></script>
+<script>
+
+  const svgs = document.querySelectorAll('#barcode')
+
+  if(svgs.length > 1){
+    {{#each melts}}
+      JsBarcode(svgs[{{@key}}], "{{id}}", {
+        width: 1.5,
+        displayValue: false
+      });
+    {{/each}}
+  } else {
+    JsBarcode("#barcode", "{{melt.id}}", {
+      width: 1.5,
+      displayValue: false
+    });
+  }
+</script>
