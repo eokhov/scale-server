@@ -40,7 +40,9 @@ app.use('/scale-start', scaleStart);
 app.use('/scale-data', scaleData);
 app.use('/scale-result', scaleResult);
 
-const PORT = process.env.PORT || 80;
+const isDev = process.env.NODE_ENV === 'development';
+const PORT = isDev ? process.env.PORT || 3000 : process.env.PORT || 80;
+
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });

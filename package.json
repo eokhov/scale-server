@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "cross-env NODE_ENV=development nodemon index.js"
   },
   "keywords": [
     "scale",
@@ -17,6 +17,7 @@
   "author": "Evgeniy Okhov <evg@moliren.ru>",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
