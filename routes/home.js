@@ -7,12 +7,14 @@ router.get('/', async (req, res) => {
   const site1Melts = melts.filter(s => s.site === '1').reverse()
   const site2Melts = melts.filter(s => s.site === '2').reverse()
   const site3Melts = melts.filter(s => s.site === '3').reverse()
+  const site4Melts = melts.filter(s => s.site === '4').reverse()
   res.render('index', {
     title: 'Весовой терминал',
     isHome: true,
     site1Melts,
     site2Melts,
     site3Melts,
+    site4Melts,
   })
 });
 

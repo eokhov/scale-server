@@ -103,4 +103,36 @@
     {{/if}}
     
   </section>
+
+  <section class="site-block">
+    <div class="site-title">
+      <h2 class="title-text">4 Участок</h2>
+    </div>
+
+    {{#if site4Melts.length}}
+    <div class="site-cards-wrap">
+
+      <div class="print-wrap">
+        <div class="card-wrap card-print">
+          <a href="/print/4">
+            <div class="card">
+              <i class="icon-MS icon-Print-block"></i>
+              <h2 class="print-text">Печать</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="card-block">
+        {{#each site4Melts}}
+        {{> card id=id name=name nummelt=nummelt site=site totalweigth=totalweigth workdate=workdate}}
+        {{/each}}
+      </div>
+      
+    </div>
+    {{else}}
+      <h5>Шихтовок на сегодня нет</h5>
+    {{/if}}
+    
+  </section>
 </div>
