@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const router = Router()
-const Melt = require('../models/melt')
-const Settings =require('../models/settings')
+const Melt = require('../models/melt');
+const Setting = require('../models/settings');
 
 function concatArr(arr1, arr2) {
   let result = [];
@@ -16,10 +16,13 @@ function concatArr(arr1, arr2) {
 }
 
 router.get('/', async (req, res) => {
+  const allSettings = await Setting.getAll();
+  const meltSettings = allSettings.map(melt => {return {dataName: melt.name, name: melt.melt}});
   res.render('create', {
     layout: 'form-layout',
     title: 'Новое задание',
     isCreate: true,
+    meltSettings: meltSettings
   })
 });
 

@@ -6,12 +6,9 @@
       <input type="text" readonly name="name" id="name" class="scale-input simple-input" required>
 
       <div class="option-block">
-        <div class="option" data-name="femo"><span>FeMo</span></div>
-        <div class="option" data-name="mocr"><span>MoCr</span></div>
-        <div class="option" data-name="few"><span>FeW</span></div>
-        <div class="option" data-name="wcr"><span>WCr</span></div>
-        <div class="option" data-name="fenb"><span>FeNb</span></div>
-        <div class="option" data-name="vnal"><span>ВнАл</span></div>
+        {{#each meltSettings}}
+          <div class="option" data-name="{{dataName}}"><span>{{name}}</span></div>
+        {{/each}}
       </div>
 
       <label for="nummelt">Номер шихты</label>

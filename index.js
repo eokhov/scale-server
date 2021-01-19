@@ -14,6 +14,7 @@ const getMelt =       require('./routes/melt');
 const scaleStart =    require('./routes/scale-start');
 const scaleData =     require('./routes/scale-data');
 const scaleResult =   require('./routes/scale-result');
+const addMaterial =   require('./routes/add-material');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/melt', getMelt);
 app.use('/scale-start', scaleStart);
 app.use('/scale-data', scaleData);
 app.use('/scale-result', scaleResult);
+app.use('/add-material', addMaterial);
 
 const isDev = process.env.NODE_ENV === 'development';
 const PORT = isDev ? process.env.PORT || 3000 : process.env.PORT || 80;

@@ -1,0 +1,39 @@
+<form id="scaleForm" action="/add-material" method="post">
+
+  <div class="general-info">
+    <div class="block-side">
+      <label for="site">Наименование</label>
+      <input type="text" name="name" id="name" class="scale-input simple-input" required>
+    </div>
+
+    <div class="block-side">
+      <label for="site">Номер участка</label>
+      <input type="number" name="site" id="site" class="scale-input simple-input" required>
+    </div>
+  </div>
+
+  <fieldset form="scaleForm" name="fieldset" class="main-material">
+    <legend><h2>Основной материал</h2></legend>
+
+     <div class="input-container">
+      <div class="input-block">
+        <input type="text" name="material" class="scale-input material-input" placeholder="Наименование">
+        <input type="number" name="weigth" class="scale-input weigth-input" placeholder="Вес">
+        
+        <button type="button" class="add-button">
+          <i class="icon-MS icon-ReturnKey"></i>
+        </button>
+      </div>
+
+      <div class="input-block">
+        <input type="text" name="material" class="scale-input material-input" placeholder="Наименование">
+        <input type="number" name="weigth" class="scale-input weigth-input" placeholder="Вес">
+        
+        <button type="button" class="add-button">
+          <i class="icon-MS icon-ReturnKey"></i>
+        </button>
+      </div>
+    </div>
+    
+  </fieldset>
+</form>

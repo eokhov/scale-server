@@ -4,11 +4,18 @@
   <div class="container">
     {{{ body }}}
   </div>
+  
+  {{#if addMaterial}}
+    {{> footer-add-material}}
+  {{/if}}
 
   {{#if isCreate}}
     {{> footer-create}}
-  {{else}}
+  {{/if}}
+  
+  {{#if isEdit}}
     {{> footer-edit}}
   {{/if}}
+
 </body>
 </html>
